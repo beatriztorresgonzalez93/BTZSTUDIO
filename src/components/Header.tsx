@@ -1,43 +1,97 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const navLinks = [
-  { href: "#inicio", label: "Inicio" },
-  { href: "#problema", label: "Problema" },
-  { href: "#solucion", label: "Solución" },
-  { href: "#funciones", label: "Funciones" },
-  { href: "#para-quien", label: "Para quién" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "#inicio", id: "inicio", label: "Inicio" },
+  { href: "#problema", id: "problema", label: "Problema" },
+  { href: "#solucion", id: "solucion", label: "Solución" },
+  { href: "#funciones", id: "funciones", label: "Funciones" },
+  { href: "#para-quien", id: "para-quien", label: "Para quién" },
+  { href: "#contacto", id: "contacto", label: "Contacto" },
 ];
+
+const HEADER_OFFSET = 140;
+const TOP_THRESHOLD = 160;
+
+function navLinkClass(active: boolean) {
+  return `text-xs tracking-wide-label uppercase transition-colors ${
+    active
+      ? "text-charcoal border-b border-charcoal pb-1"
+      : "text-charcoal-muted hover:text-charcoal"
+  }`;
+}
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [activeId, setActiveId] = useState("inicio");
+
+  const updateActiveSection = useCallback(() => {
+    if (window.scrollY < TOP_THRESHOLD) {
+      setActiveId("inicio");
+      return;
+    }
+
+    let currentId = "inicio";
+
+    for (const link of navLinks) {
+      const el = document.getElementById(link.id);
+      if (!el) continue;
+
+      const sectionTop = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+      if (window.scrollY >= sectionTop) {
+        currentId = link.id;
+      }
+    }
+
+    setActiveId(currentId);
+  }, []);
+
+  useEffect(() => {
+    updateActiveSection();
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          updateActiveSection();
+          ticking = false;
+        });
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("hashchange", updateActiveSection);
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("hashchange", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, [updateActiveSection]);
+
+  const handleNavClick = (id: string) => {
+    setOpen(false);
+    setActiveId(id);
+    requestAnimationFrame(() => {
+      setTimeout(updateActiveSection, 400);
+    });
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-charcoal/10">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-12">
-        <Link href="#inicio" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <Image
-            src="/logo.png"
-            alt="BTZ Studio"
-            width={48}
-            height={48}
-            className="h-10 w-10 object-contain md:h-12 md:w-12"
-          />
-          <span className="hidden text-xs tracking-wide-label uppercase text-charcoal-muted sm:block">
-            Plataforma para bodas
-          </span>
-        </Link>
-
+      <div className="relative mx-auto flex max-w-6xl items-center justify-center px-6 py-4 md:px-12">
         <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-xs tracking-wide-label uppercase text-charcoal-muted transition-colors hover:text-charcoal"
+              aria-current={activeId === link.id ? "page" : undefined}
+              className={navLinkClass(activeId === link.id)}
+              onClick={() => handleNavClick(link.id)}
             >
               {link.label}
             </Link>
@@ -46,14 +100,19 @@ export function Header() {
 
         <Link
           href="#contacto"
-          className="hidden border border-charcoal px-5 py-2 text-xs tracking-wide-label uppercase transition-colors hover:bg-charcoal hover:text-cream md:inline-block"
+          className={`absolute right-6 hidden border px-5 py-2 text-xs tracking-wide-label uppercase transition-colors md:inline-block md:right-12 ${
+            activeId === "contacto"
+              ? "border-charcoal bg-charcoal text-cream"
+              : "border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
+          }`}
+          onClick={() => handleNavClick("contacto")}
         >
           Presupuesto
         </Link>
 
         <button
           type="button"
-          className="flex flex-col gap-1.5 md:hidden"
+          className="absolute right-6 flex flex-col gap-1.5 md:hidden"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           onClick={() => setOpen(!open)}
         >
@@ -76,8 +135,11 @@ export function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm tracking-wide-label uppercase text-charcoal"
-                  onClick={() => setOpen(false)}
+                  aria-current={activeId === link.id ? "page" : undefined}
+                  className={`text-sm tracking-wide-label uppercase ${
+                    activeId === link.id ? "text-charcoal font-medium" : "text-charcoal-muted"
+                  }`}
+                  onClick={() => handleNavClick(link.id)}
                 >
                   {link.label}
                 </Link>
@@ -87,7 +149,7 @@ export function Header() {
               <Link
                 href="#contacto"
                 className="inline-block border border-charcoal px-5 py-2 text-xs tracking-wide-label uppercase"
-                onClick={() => setOpen(false)}
+                onClick={() => handleNavClick("contacto")}
               >
                 Solicitar presupuesto
               </Link>

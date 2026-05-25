@@ -47,5 +47,4 @@ Propagación DNS: suele tardar entre minutos y 48 h.
 
 ## Contacto en la web
 
-- Email: beatriztorresgonzalez@gmail.com
-- Ubicación: Sevilla, España
+- Email: contacto@btzstudio.com

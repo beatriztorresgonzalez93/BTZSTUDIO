@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BranchIcon } from "./BranchIcon";
 import { FadeIn } from "./FadeIn";
 
 const highlights = [
@@ -26,21 +25,14 @@ export function Hero() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="flex flex-col items-center text-center">
-            <div className="relative mb-10 inline-flex flex-col items-center">
-              <div className="thin-border px-10 py-8 md:px-16 md:py-12">
-                <Image
-                  src="/logo.png"
-                  alt="BTZ Studio — Plataforma para bodas"
-                  width={320}
-                  height={320}
-                  className="mx-auto h-48 w-auto object-contain md:h-64"
-                  priority
-                />
-              </div>
-              <div className="absolute -bottom-3 left-1/2 flex w-32 -translate-x-1/2 items-center justify-center bg-cream px-2 text-charcoal">
-                <BranchIcon className="h-6 w-full" />
-              </div>
-            </div>
+            <Image
+              src="/logo.png"
+              alt="BTZ Studio"
+              width={320}
+              height={320}
+              className="mb-10 h-48 w-auto object-contain md:h-64"
+              priority
+            />
 
             <p className="mb-4 text-xs tracking-wide-label uppercase text-charcoal-muted">
               Plataforma web & móvil
