@@ -98,18 +98,6 @@ export function Header() {
           ))}
         </nav>
 
-        <Link
-          href="#contacto"
-          className={`absolute right-6 hidden border px-5 py-2 text-xs tracking-wide-label uppercase transition-colors md:inline-block md:right-12 ${
-            activeId === "contacto"
-              ? "border-charcoal bg-charcoal text-cream"
-              : "border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
-          }`}
-          onClick={() => handleNavClick("contacto")}
-        >
-          Presupuesto
-        </Link>
-
         <button
           type="button"
           className="absolute right-6 flex flex-col gap-1.5 md:hidden"
@@ -145,15 +133,6 @@ export function Header() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link
-                href="#contacto"
-                className="inline-block border border-charcoal px-5 py-2 text-xs tracking-wide-label uppercase"
-                onClick={() => handleNavClick("contacto")}
-              >
-                Solicitar presupuesto
-              </Link>
-            </li>
           </ul>
         </nav>
       )}

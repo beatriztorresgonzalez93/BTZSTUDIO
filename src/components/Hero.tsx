@@ -27,10 +27,10 @@ export function Hero() {
           <div className="flex flex-col items-center text-center">
             <Image
               src="/logo.png"
-              alt="BTZ Studio"
-              width={320}
-              height={320}
-              className="mb-10 h-48 w-auto object-contain md:h-64"
+              alt="BTZ Studio — Plataforma para bodas"
+              width={400}
+              height={400}
+              className="mb-10 h-52 w-auto object-contain md:h-72"
               priority
             />
 

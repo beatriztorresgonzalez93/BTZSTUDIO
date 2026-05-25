@@ -6,7 +6,13 @@ export function Footer() {
     <footer className="border-t border-charcoal/10 px-6 py-10 md:px-12">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 md:flex-row">
         <div className="flex items-center gap-4">
-          <Image src="/logo.png" alt="" width={40} height={40} className="h-8 w-8 opacity-80" />
+          <Image
+            src="/logo.png"
+            alt=""
+            width={56}
+            height={56}
+            className="h-14 w-auto object-contain opacity-90"
+          />
           <div>
             <p className="font-serif text-lg text-charcoal">BTZ Studio</p>
             <p className="text-xs tracking-wide-label uppercase text-charcoal-muted">
