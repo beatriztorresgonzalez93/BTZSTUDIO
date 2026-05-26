@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "./FadeIn";
+import { Logo } from "./Logo";
 
 const highlights = [
   { icon: "⚡", title: "Tiempo real", desc: "Actualizaciones al instante" },
@@ -21,16 +21,18 @@ const featureTags = [
 
 export function Hero() {
   return (
-    <section id="inicio" className="section-padding pt-36 md:pt-44">
-      <div className="mx-auto max-w-6xl">
+    <section id="inicio" className="section-padding relative overflow-hidden pt-36 md:pt-44">
+      <div
+        className="pointer-events-none absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-gold/10 blur-3xl md:h-96 md:w-96"
+        aria-hidden
+      />
+      <div className="relative mx-auto max-w-6xl">
         <FadeIn>
           <div className="flex flex-col items-center text-center">
-            <Image
-              src="/logo.png"
-              alt="BTZ Studio — Plataforma para bodas"
+            <Logo
+              className="mb-10 h-52 w-auto md:h-72"
               width={400}
               height={400}
-              className="mb-10 h-52 w-auto object-contain md:h-72"
               priority
             />
 
@@ -57,10 +59,10 @@ export function Hero() {
                 Solicitar presupuesto
               </Link>
               <Link
-                href="#funciones"
+                href="#como-funciona"
                 className="border border-charcoal px-10 py-4 text-xs tracking-wide-label uppercase text-charcoal transition-colors hover:bg-charcoal hover:text-cream"
               >
-                Ver funcionalidades
+                Cómo funciona
               </Link>
             </div>
           </div>
