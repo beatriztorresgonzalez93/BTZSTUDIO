@@ -1,4 +1,8 @@
 import Image from "next/image";
+import logoMark from "@/assets/btz-logo.png";
+
+const LOGO_WIDTH = 895;
+const LOGO_HEIGHT = 584;
 
 type LogoProps = {
   className?: string;
@@ -11,19 +15,21 @@ type LogoProps = {
 export function Logo({
   className = "",
   width = 400,
-  height = 400,
+  height,
   priority = false,
-  alt = "BTZ Studio — Plataforma para bodas",
+  alt = "BTZ Studio",
 }: LogoProps) {
+  const resolvedHeight =
+    height ?? Math.round((width * LOGO_HEIGHT) / LOGO_WIDTH);
+
   return (
     <Image
-      src="/logo.png"
+      src={logoMark}
       alt={alt}
       width={width}
-      height={height}
+      height={resolvedHeight}
       priority={priority}
-      unoptimized
-      className={`object-contain ${className}`}
+      className={`h-auto w-auto max-w-full object-contain ${className}`}
     />
   );
 }

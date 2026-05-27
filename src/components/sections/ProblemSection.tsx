@@ -12,7 +12,7 @@ export function ProblemSection() {
           subtitle="Os suena familiar alguno de estos momentos?"
         />
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {PROBLEMS.map((item, i) => (
             <AnimateIn key={item.title} delay={i * 0.08}>
               <article className="group h-full rounded-2xl border border-blush-deep/40 bg-cream/50 p-8 transition-all duration-300 hover:border-gold/30 hover:bg-white hover:shadow-lg hover:shadow-blush/20">

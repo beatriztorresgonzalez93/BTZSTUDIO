@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="border-t border-blush-deep/40 bg-white px-5 py-12 md:px-10">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
         <div>
-          <Logo width={100} height={40} className="h-10 w-auto" alt="BTZ Studio" />
+          <Logo width={100} className="h-10" alt="BTZ Studio" />
           <p className="mt-4 max-w-xs text-sm text-charcoal-muted">
             Webs de boda personalizadas con diseño emocional y experiencia premium.
           </p>

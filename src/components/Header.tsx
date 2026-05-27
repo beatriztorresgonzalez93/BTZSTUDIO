@@ -53,7 +53,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-blush-deep/30 bg-white/75 backdrop-blur-lg">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-10">
         <Link href="#inicio" onClick={() => setOpen(false)} className="shrink-0">
-          <Logo width={120} height={48} className="h-9 w-auto md:h-10" priority alt="BTZ Studio" />
+          <Logo width={120} className="h-9 md:h-10" priority alt="BTZ Studio" />
         </Link>
 
         <nav className="hidden items-center gap-4 xl:gap-6 lg:flex" aria-label="Principal">

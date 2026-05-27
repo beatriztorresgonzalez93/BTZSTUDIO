@@ -2,7 +2,7 @@ export const NAV_LINKS = [
   { id: "inicio", label: "Inicio" },
   { id: "problema", label: "Problema" },
   { id: "solucion", label: "Solución" },
-  { id: "precios", label: "Precios" },
+  { id: "precios", label: "Paquetes" },
   { id: "portfolio", label: "Portfolio" },
   { id: "por-que", label: "Por qué" },
   { id: "proceso", label: "Proceso" },
@@ -25,22 +25,52 @@ export const PROBLEMS = [
     title: "Todo repartido en WhatsApp",
     desc: "Información importante enterrada entre chats, audios y fotos sin orden.",
   },
+  {
+    icon: "🪑",
+    title: "El plan de mesas en Excel",
+    desc: "Crear mesas, cuadrar aforo y reubicar invitados cuando alguien confirma o cancela.",
+  },
 ] as const;
 
 export const FEATURES = [
   { icon: "📅", title: "Fecha, ubicación y horario", desc: "Ceremonia, banquete y timeline del día, siempre a mano." },
   { icon: "✓", title: "Confirmación RSVP", desc: "Menú, alergias y asistencia en un formulario sencillo." },
+  {
+    icon: "🪑",
+    title: "Seating · plan de mesas",
+    desc: "Creáis mesas y asignáis invitados según vayan confirmando, sin hojas sueltas.",
+  },
   { icon: "📍", title: "Mapa integrado", desc: "Llegada fácil a la iglesia, finca o restaurante." },
   { icon: "♥", title: "Historia de la pareja", desc: "Cómo os conocisteis, pedida y momentos especiales." },
   { icon: "📷", title: "Galería de fotos", desc: "Vuestras imágenes con un diseño que emociona." },
   { icon: "ℹ", title: "Info para invitados", desc: "Alojamiento, regalo, parking y detalles útiles." },
-  { icon: "🔔", title: "Actualizaciones", desc: "Cambios de última hora visibles al instante." },
   {
     icon: "🔒",
     title: "Panel privado para los novios",
-    desc: "Gestionáis invitados, confirmaciones y cambios desde un espacio solo vuestro.",
+    desc: "Invitados, RSVP, seating y cambios de última hora desde un espacio solo vuestro.",
   },
 ] as const;
+
+export const SEATING_HIGHLIGHT = {
+  eyebrow: "Nuestro diferencial",
+  title: "Seating: mesas e invitados, siempre al día",
+  subtitle:
+    "Uno de los puntos fuertes de nuestras webs. Los novios crean el salón, van sentando a cada invitado y el plano se actualiza conforme llegan las confirmaciones.",
+  points: [
+    {
+      title: "Creáis las mesas que necesitéis",
+      desc: "Redondas, imperiales o personalizadas: definís nombre, capacidad y ubicación en el salón.",
+    },
+    {
+      title: "Asignáis invitados al confirmar",
+      desc: "Cuando alguien responde al RSVP, lo colocáis en su mesa en segundos, sin duplicar datos.",
+    },
+    {
+      title: "Vista clara para el gran día",
+      desc: "Sabéis quién falta por sentar, quién ha cancelado y cómo queda el reparto antes de imprimir el seating.",
+    },
+  ],
+} as const;
 
 export const PLANS = [
   {
@@ -62,6 +92,7 @@ export const PLANS = [
       "Todo lo del Plan Básico",
       "RSVP con confirmación",
       "Gestión de invitados",
+      "Seating: mesas y asignación de invitados",
       "Panel para los novios",
     ],
   },
@@ -72,6 +103,7 @@ export const PLANS = [
     features: [
       "Diseño totalmente a medida",
       "RSVP avanzado",
+      "Seating avanzado con vista de salón",
       "Galería premium",
       "Historia / timeline",
       "Enlace único y QR para invitaciones",
@@ -83,18 +115,21 @@ export const PLANS = [
 export const PORTFOLIO = [
   {
     couple: "Laura & Miguel",
+    slug: "laura-miguel",
     location: "Finca en Córdoba",
     desc: "Web romántica en tonos tierra con RSVP y galería de su preboda.",
     image: "/portfolio/laura-miguel.jpg",
   },
   {
     couple: "Elena & David",
+    slug: "elena-david",
     location: "Jardín en Sevilla",
     desc: "Diseño minimalista en blanco y verde oliva con mapa y timeline del día.",
     image: "/portfolio/elena-david.jpg",
   },
   {
     couple: "Sofía & Alejandro",
+    slug: "sofia-alejandro",
     location: "Costa en Málaga",
     desc: "Estética mediterránea con historia de la pareja y confirmación de menú.",
     image: "/portfolio/sofia-alejandro-boda.jpg",

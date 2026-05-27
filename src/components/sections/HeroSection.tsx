@@ -42,7 +42,7 @@ export function HeroSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             Diseñamos plataformas digitales personalizadas con confirmación de asistencia,
-            galería de fotos y toda la información que vuestros invitados necesitan.
+            plan de mesas (seating) y toda la información que vuestros invitados necesitan.
           </motion.p>
           <motion.div
             className="mt-10 flex flex-col gap-4 sm:flex-row"
@@ -68,10 +68,9 @@ export function HeroSection() {
           </div>
           <Logo
             width={420}
-            height={420}
             priority
-            className="relative h-56 w-auto md:h-72 lg:h-80"
-            alt="BTZ Studio — Plataforma para bodas"
+            className="relative h-56 md:h-72 lg:h-80"
+            alt="BTZ Studio"
           />
         </motion.div>
       </div>
