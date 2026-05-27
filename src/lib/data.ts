@@ -74,7 +74,8 @@ export const PLANS = [
       "RSVP avanzado",
       "Galería premium",
       "Historia / timeline",
-      "Dominio personalizado",
+      "Enlace único y QR para invitaciones",
+      "Música colaborativa para invitados",
     ],
   },
 ] as const;
