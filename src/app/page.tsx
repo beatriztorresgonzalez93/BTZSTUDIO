@@ -1,26 +1,26 @@
-import { AudienceSection } from "@/components/AudienceSection";
-import { ContactSection } from "@/components/ContactSection";
-import { FAQSection } from "@/components/FAQSection";
-import { FeaturesSection } from "@/components/FeaturesSection";
-import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { HowItWorksSection } from "@/components/HowItWorksSection";
-import { ProblemSection } from "@/components/ProblemSection";
-import { SolutionSection } from "@/components/SolutionSection";
+import { Footer } from "@/components/Footer";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { ProblemSection } from "@/components/sections/ProblemSection";
+import { SolutionSection } from "@/components/sections/SolutionSection";
+import { PricingSection } from "@/components/sections/PricingSection";
+import { PortfolioSection } from "@/components/sections/PortfolioSection";
+import { WhySection } from "@/components/sections/WhySection";
+import { ProcessSection } from "@/components/sections/ProcessSection";
+import { ContactSection } from "@/components/sections/ContactSection";
 
 export default function Home() {
   return (
     <>
       <Header />
       <main>
-        <Hero />
+        <HeroSection />
         <ProblemSection />
         <SolutionSection />
-        <FeaturesSection />
-        <HowItWorksSection />
-        <AudienceSection />
-        <FAQSection />
+        <PricingSection />
+        <PortfolioSection />
+        <WhySection />
+        <ProcessSection />
         <ContactSection />
       </main>
       <Footer />

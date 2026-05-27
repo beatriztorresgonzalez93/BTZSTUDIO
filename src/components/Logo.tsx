@@ -8,7 +8,6 @@ type LogoProps = {
   alt?: string;
 };
 
-/** Logo blanco sobre PNG transparente → invert para fondos claros */
 export function Logo({
   className = "",
   width = 400,
@@ -23,7 +22,8 @@ export function Logo({
       width={width}
       height={height}
       priority={priority}
-      className={`object-contain invert ${className}`}
+      unoptimized
+      className={`object-contain ${className}`}
     />
   );
 }
