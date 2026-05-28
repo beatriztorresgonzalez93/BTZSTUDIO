@@ -7,20 +7,19 @@ import { AnimateIn } from "@/components/ui/AnimateIn";
 
 export function HeroSection() {
   return (
-    <section id="inicio" className="gradient-hero relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
-      <div
-        className="pointer-events-none absolute -right-20 top-20 h-80 w-80 rounded-full bg-blush/50 blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-gold-light/40 blur-3xl"
-        aria-hidden
-      />
+    <section
+      id="inicio"
+      className="gradient-hero relative pt-[calc(5.75rem+env(safe-area-inset-top,0px))] pb-16 md:pt-36 md:pb-24"
+    >
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+        <div className="absolute -right-20 top-20 h-80 w-80 rounded-full bg-blush/50 blur-3xl" />
+        <div className="absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-gold-light/40 blur-3xl" />
+      </div>
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 md:px-10 lg:grid-cols-2 lg:gap-8">
         <div>
           <motion.p
-            className="mb-4 text-xs tracking-wide-label text-gold uppercase"
+            className="mb-4 text-[0.65rem] tracking-[0.14em] text-gold uppercase sm:text-xs sm:tracking-wide-label"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
